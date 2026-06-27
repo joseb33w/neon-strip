@@ -374,13 +374,13 @@ func _exit_car() -> void:
 
 func _spawn_decor_and_venues() -> void:
 	venues = [
-		{id = "casino", name = "Lucky Star Casino", pos = Vector3(34, 0, 13), color = Color(1.0, 0.82, 0.2)},
-		{id = "club", name = "Club Mirage", pos = Vector3(29, 0, 39), color = Color(0.2, 0.9, 1.0)},
-		{id = "fair", name = "Neon Pier Fair", pos = Vector3(40, 0, 45), color = Color(1.0, 0.45, 0.7)},
+		{id = "casino", name = "Lucky Star Casino", short = "Casino", pos = Vector3(34, 0, 13), color = Color(1.0, 0.82, 0.2)},
+		{id = "club", name = "Club Mirage", short = "Club", pos = Vector3(29, 0, 39), color = Color(0.2, 0.9, 1.0)},
+		{id = "fair", name = "Neon Pier Fair", short = "Fair", pos = Vector3(40, 0, 45), color = Color(1.0, 0.45, 0.7)},
 	]
 	var faces := {"casino": 0.0, "club": 90.0, "fair": 0.0}
 	for v in venues:
-		Neon.sign(self, v.pos, String(v.name), v.color, 8.5, float(faces.get(v.id, 0.0)))
+		Neon.sign(self, v.pos + Vector3(3.2, 0, 0), String(v.name), v.color, 8.5, float(faces.get(v.id, 0.0)))
 		_entrance_pad(v.pos, v.color)
 	# a few extra Strip neon signs for skyline flavor
 	Neon.sign(self, Vector3(20, 0, 18), "LOST WAGES", Color(1.0, 0.3, 0.5), 11.0, -90.0)
@@ -514,7 +514,7 @@ func _build_hud() -> void:
 	info_bg = ColorRect.new()
 	info_bg.color = Color(0.03, 0.04, 0.08, 0.55)
 	info_bg.position = Vector2(8, 8)
-	info_bg.size = Vector2(360, 86)
+	info_bg.size = Vector2(366, 108)
 	hud_layer.add_child(info_bg)
 	info = Label.new()
 	info.position = Vector2(16, 12)
@@ -605,7 +605,7 @@ func _update_context() -> void:
 			var nm := ven
 			for v in venues:
 				if v.id == ven:
-					nm = String(v.name)
+					nm = String(v.short)
 			action_btn.text = "Enter " + nm
 			action_btn.visible = true
 		else:
