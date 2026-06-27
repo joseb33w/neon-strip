@@ -84,6 +84,9 @@ func enter(venue_id: String) -> void:
 		"casino": _build_casino()
 		"club": _build_club()
 		"fair": _build_fair()
+	# teleport the player INTO the interior (built at OFFSETS[venue]); spawn just inside the
+	# entrance, clear of the games, on the floor (gravity settles the small y drop).
+	player.global_position = OFFSETS[venue_id] + Vector3(0, 0.4, 10.0)
 	player.velocity = Vector3.ZERO
 	if main_ref.has_method("set_inside"):
 		main_ref.set_inside(true)

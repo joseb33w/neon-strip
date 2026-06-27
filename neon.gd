@@ -72,8 +72,8 @@ static func sign(parent: Node3D, world_pos: Vector3, text: String, color: Color,
 	# pole
 	var pole := MeshInstance3D.new()
 	var pm := CylinderMesh.new()
-	pm.top_radius = 0.18
-	pm.bottom_radius = 0.22
+	pm.top_radius = 0.1
+	pm.bottom_radius = 0.13
 	pm.height = height
 	pole.mesh = pm
 	var pmat := StandardMaterial3D.new()
