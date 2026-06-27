@@ -1,0 +1,15 @@
+{
+  "quests": [
+    {
+      "id": "see_the_strip",
+      "name": "See the Strip",
+      "giver": "local",
+      "steps": [
+        { "id": "valet", "objective": { "type": "talk_to", "target": "valet" }, "desc": "Chat with the casino valet" },
+        { "id": "fair", "objective": { "type": "reach_area", "target": "c2_2" }, "desc": "Reach the Neon Pier Fair" }
+      ],
+      "rewards": { "xp": 50, "gold": 25 },
+      "on_complete_flags": ["toured"]
+    }
+  ]
+}
